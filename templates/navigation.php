@@ -1,4 +1,4 @@
-<nav class="flex items-center bg-gray-800 p-3 flex-wrap fixed top-0 w-full">
+<nav class="flex items-center bg-gray-800 p-3 flex-wrap w-full">
     <a href="#" class="p-2 mr-4 inline-flex items-center">
         <svg
                 viewBox="0 0 24 24"

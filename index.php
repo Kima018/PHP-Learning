@@ -19,7 +19,7 @@ session_start();
 require "templates/navigation.php";
 ?>
 <?php if (isset($_SESSION["registered"]) && $_SESSION["registered"] === true) : ?>
-<h1 class="mt-52">Ulogovani ste</h1>
+<?php require "templates/table_template.php";?>
 <?php else: ?>
 
 <?php
