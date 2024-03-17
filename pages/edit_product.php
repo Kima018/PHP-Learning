@@ -31,27 +31,33 @@ require "../templates/navigation.php";
             proizvoda</label>
         <input type="text"
                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-               value="<?php echo $row["naziv"]; ?>">
+               value="<?php echo $row["naziv"]; ?>"
+               name="product_name">
 
     </div>
     <div class="mb-5">
         <label for="base-input" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Boja</label>
         <input type="text"
                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-               value="<?php echo $row["boja"]; ?>">
+               value="<?php echo $row["boja"]; ?>"
+               name="product_color">
     </div>
     <div class="mb-5">
         <label for="base-input" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Kategorija</label>
         <input type="text"
                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-               value="<?php echo $row["kategorija"]; ?>">
+               value="<?php echo $row["kategorija"]; ?>"
+               name="product_category">
     </div>
     <div>
         <label for="base-input" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Cena</label>
         <input type="text"
                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-               value="<?php echo $row["cena"]; ?>">
+               value="<?php echo $row["cena"]; ?>"
+               name="product_price">
     </div>
+    <input type="number" name="product_id" value="<?php echo $id ?>" readonly class="hidden">
+
     <input
             class="mt-6 block w-full select-none rounded-lg bg-pink-500 py-3 px-6 text-center align-middle font-sans text-xs font-bold uppercase text-white shadow-md shadow-pink-500/20 transition-all hover:shadow-lg hover:shadow-pink-500/40 focus:opacity-[0.85] focus:shadow-none active:opacity-[0.85] active:shadow-none disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none"
             type="submit"

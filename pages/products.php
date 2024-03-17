@@ -68,7 +68,6 @@ require "../templates/navigation.php";
                            <div class="flex gap-4">
                                <span><a href="../pages/edit_product.php?id=<?php echo $row['id']; ?>">Edit</a></span>
                                <span>Delete</span>
-                               <span>Update</span></div>
                         </td>
                     </tr>
                 <?php endwhile; ?>
