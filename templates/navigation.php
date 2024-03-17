@@ -42,41 +42,18 @@
                 <span>Log out</span>
             </a>
             <a
-                    href="#"
+                    href="http://localhost/phpLearning"
                     class="lg:inline-flex lg:w-auto w-full px-3 py-2 rounded text-gray-400 items-center justify-center hover:bg-gray-900 hover:text-white"
             >
                 <span>Home</span>
             </a>
             <a
-                    href="#"
-                    class="lg:inline-flex lg:w-auto w-full px-3 py-2 rounded text-gray-400 items-center justify-center hover:bg-gray-900 hover:text-white"
-            >
-                <span>About</span>
-            </a>
-            <a
-                    href="#"
-                    class="lg:inline-flex lg:w-auto w-full px-3 py-2 rounded text-gray-400 items-center justify-center hover:bg-gray-900 hover:text-white"
-            >
-                <span>Services</span>
-            </a>
-            <a
-                    href="#"
-                    class="lg:inline-flex lg:w-auto w-full px-3 py-2 rounded text-gray-400 items-center justify-center hover:bg-gray-900 hover:text-white"
-            >
-                <span>Gallery</span>
-            </a>
-            <a
-                    href="#"
+                    href="http://localhost/phpLearning/pages/products.php"
                     class="lg:inline-flex lg:w-auto w-full px-3 py-2 rounded text-gray-400 items-center justify-center hover:bg-gray-900 hover:text-white"
             >
                 <span>Products</span>
             </a>
-            <a
-                    href="#"
-                    class="lg:inline-flex lg:w-auto w-full px-3 py-2 rounded text-gray-400 items-center justify-center hover:bg-gray-900 hover:text-white"
-            >
-                <span>Contact Us</span>
-            </a>
+
         </div>
         <?php endif; ?>
     </div>

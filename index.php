@@ -19,7 +19,8 @@ session_start();
 require "templates/navigation.php";
 ?>
 <?php if (isset($_SESSION["registered"]) && $_SESSION["registered"] === true) : ?>
-<?php require "templates/table_template.php";?>
+<?php //require "templates/table_template.php";?>
+<h1>Prijavljeni ste!</h1>
 <?php else: ?>
 
 <?php
