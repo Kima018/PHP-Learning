@@ -18,7 +18,7 @@ session_start();
 <?php
 require "templates/navigation.php";
 ?>
-<?php if (isset($_SESSION['ulogovan'])) : ?>
+<?php if (isset($_SESSION["registered"]) && $_SESSION["registered"] === true) : ?>
 <h1 class="mt-52">Ulogovani ste</h1>
 <?php else: ?>
 

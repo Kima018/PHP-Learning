@@ -12,7 +12,7 @@
 </head>
 <body>
 <?php
-require "navigation.php";
+require "../templates/navigation.php";
 ?>
 
 <div class="flex min-h-screen items-center justify-center">
@@ -23,7 +23,7 @@ require "navigation.php";
         <p class="mt-1 block font-sans text-base font-normal leading-relaxed text-gray-700 antialiased">
             Enter your details to login.
         </p>
-        <form class="mt-8 mb-2 w-80 max-w-screen-lg sm:w-96" method="post" action="../login.php">
+        <form class="mt-8 mb-2 w-80 max-w-screen-lg sm:w-96" method="post" action="../controllers/login.php">
             <div class="mb-4 flex flex-col gap-6">
 
                 <div class="relative h-11 w-full min-w-[200px]">

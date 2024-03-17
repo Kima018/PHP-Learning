@@ -23,9 +23,9 @@
             class="hidden top-navbar w-full lg:inline-flex lg:flex-grow lg:w-auto"
             id="navigation"
     >
-        <?php if (!isset($_SESSION['ulogovan'])): ?>
+        <?php if (!isset($_SESSION['registered'])): ?>
         <a
-                href="/pages/login_form.php"
+                href="pages/login_page.php"
                 class="lg:inline-flex lg:w-auto w-full px-3 py-2 rounded text-gray-400 items-center justify-center hover:bg-gray-900 hover:text-white"
         >
             <span>Login</span>
@@ -35,6 +35,12 @@
         <div
                 class="lg:inline-flex lg:flex-row lg:ml-auto lg:w-auto w-full lg:items-center items-start  flex flex-col lg:h-auto"
         >
+            <a
+                    href="controllers/logOut.php"
+                    class="lg:inline-flex lg:w-auto w-full px-3 py-2 rounded text-gray-400 items-center justify-center hover:bg-gray-900 hover:text-white"
+            >
+                <span>Log out</span>
+            </a>
             <a
                     href="#"
                     class="lg:inline-flex lg:w-auto w-full px-3 py-2 rounded text-gray-400 items-center justify-center hover:bg-gray-900 hover:text-white"
