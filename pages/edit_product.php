@@ -58,11 +58,24 @@ require "../templates/navigation.php";
     </div>
     <input type="number" name="product_id" value="<?php echo $id ?>" readonly class="hidden">
 
-    <input
-            class="mt-6 block w-full select-none rounded-lg bg-pink-500 py-3 px-6 text-center align-middle font-sans text-xs font-bold uppercase text-white shadow-md shadow-pink-500/20 transition-all hover:shadow-lg hover:shadow-pink-500/40 focus:opacity-[0.85] focus:shadow-none active:opacity-[0.85] active:shadow-none disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none"
-            type="submit"
-            value="Edit"
-    >
+    <div class="flex justify-between">
+        <input
+                class="mt-6 block select-none rounded-lg bg-pink-500 py-3 px-6 text-center align-middle font-sans text-xs font-bold uppercase text-white shadow-md shadow-pink-500/20 transition-all hover:shadow-lg hover:shadow-pink-500/40 focus:opacity-[0.85] focus:shadow-none active:opacity-[0.85] active:shadow-none disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none"
+                type="submit"
+                value="Edit"
+        >
+        <form method="POST" action="../controllers/delete_item.php">
+            <input type="number" name="product_id" value="<?php echo $id ?>" class="hidden">
+            <input
+                    class="mt-6 block select-none rounded-lg bg-pink-500 py-3 px-6 text-center align-middle font-sans text-xs font-bold uppercase text-white shadow-md shadow-pink-500/20 transition-all hover:shadow-lg hover:shadow-pink-500/40 focus:opacity-[0.85] focus:shadow-none active:opacity-[0.85] active:shadow-none disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none"
+                    type="submit"
+                    value="Delete"
+                    onclick="return confirm('Da li ste sigurni da želite obrisati ovaj proizvod?')"
+            >
+        </form>
+
+    </div>
+
 
 </form>
 

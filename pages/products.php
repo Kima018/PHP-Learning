@@ -67,7 +67,11 @@ require "../templates/navigation.php";
                         <td class="px-6 py-4 flex justify-center">
                            <div class="flex gap-4">
                                <span><a href="../pages/edit_product.php?id=<?php echo $row['id']; ?>">Edit</a></span>
-                               <span>Delete</span>
+                               <span>delete</span>
+                               <form method="POST" action="../controllers/delete_item.php">
+                                   <input type="number" name="product_id" value="<?php echo $row['id']; ?>" class="hidden">
+                                   <input type="submit" value="delete" onclick="return confirm('Da li ste sigurni da želite obrisati ovaj proizvod?');">
+                               </form>
                         </td>
                     </tr>
                 <?php endwhile; ?>
@@ -75,10 +79,9 @@ require "../templates/navigation.php";
             </tbody>
         </table>
     </div>
-
 <?php endif; ?>
 
-
+<dialog> test</dialog>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.0/jquery.min.js"
         integrity="sha256-xNzN2a4ltkB44Mc/Jz3pT4iU1cmeR0FkXs4pru/JxaQ=" crossorigin="anonymous"></script>
 <script>
