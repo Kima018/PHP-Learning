@@ -8,9 +8,10 @@ if ($_SERVER['REQUEST_METHOD'] !== "POST") {
 if (!isset($_POST['product_id'])) {
     die("Proizvod nije poronadjen!");
 };
+
 deleteItemById($_POST['product_id']);
 
-header('location:localhost/pages/products');
+header("location:../pages/products.php");
 exit();
 
 ?>

@@ -62,20 +62,26 @@ require "../templates/navigation.php";
                             <?php echo $row["kategorija"]; ?>
                         </td>
                         <td class="px-6 py-4">
-                            <?php echo $row["cena"]; ?>
+                            <?php echo $row["cena"]; ?>&dollar;
                         </td>
                         <td class="px-6 py-4 flex justify-center">
                            <div class="flex gap-4">
                                <span><a href="../pages/edit_product.php?id=<?php echo $row['id']; ?>">Edit</a></span>
-                               <span>delete</span>
                                <form method="POST" action="../controllers/delete_item.php">
                                    <input type="number" name="product_id" value="<?php echo $row['id']; ?>" class="hidden">
-                                   <input type="submit" value="delete" onclick="return confirm('Da li ste sigurni da želite obrisati ovaj proizvod?');">
+                                   <input type="submit" value="delete" onclick="return confirm('Da li ste sigurni da želite obrisati ovaj proizvod?');" class="cursor-pointer bg-transparent">
                                </form>
                         </td>
                     </tr>
                 <?php endwhile; ?>
             <?php endif; ?>
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td class="flex justify-center"><span class="border p-3"><a href="../pages/add_product.php">Add new item</a></span></td>
+            </tr>
             </tbody>
         </table>
     </div>

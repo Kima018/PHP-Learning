@@ -4,6 +4,9 @@ require_once "../models/user.php";
 if ($_SERVER["REQUEST_METHOD"] !== "POST") {
     die("Form method is not POST!");
 };
+if (!isset($_POST['name'],$_POST['email'],$_POST['password'])){
+    die("Something got wrong!");
+};
 
 session_start();
 $username = $_POST['name'];
