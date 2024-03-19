@@ -65,12 +65,15 @@ require "../templates/navigation.php";
                             <?php echo $row["cena"]; ?>&dollar;
                         </td>
                         <td class="px-6 py-4 flex justify-center">
-                           <div class="flex gap-4">
-                               <span><a href="../pages/edit_product.php?id=<?php echo $row['id']; ?>">Edit</a></span>
-                               <form method="POST" action="../controllers/delete_item.php">
-                                   <input type="number" name="product_id" value="<?php echo $row['id']; ?>" class="hidden">
-                                   <input type="submit" value="delete" onclick="return confirm('Da li ste sigurni da želite obrisati ovaj proizvod?');" class="cursor-pointer bg-transparent">
-                               </form>
+                            <div class="flex gap-4">
+                                <span><a href="../pages/edit_product.php?id=<?php echo $row['id']; ?>">Edit</a></span>
+                                <form method="POST" action="../controllers/delete_item.php">
+                                    <input type="number" name="product_id" value="<?php echo $row['id']; ?>"
+                                           class="hidden">
+                                    <input type="submit" value="delete"
+                                           onclick="return confirm('Da li ste sigurni da želite obrisati ovaj proizvod?');"
+                                           class="cursor-pointer bg-transparent">
+                                </form>
                         </td>
                     </tr>
                 <?php endwhile; ?>
@@ -80,15 +83,13 @@ require "../templates/navigation.php";
                 <td></td>
                 <td></td>
                 <td></td>
-                <td class="flex justify-center"><span class="border p-3"><a href="../pages/add_product.php">Add new item</a></span></td>
+                <td class="flex justify-center"><span class="border p-3"><a
+                                href="../pages/add_product.php">Add new item</a></span></td>
             </tr>
             </tbody>
         </table>
     </div>
 <?php endif; ?>
-
-
-
 
 
 <dialog> test</dialog>
