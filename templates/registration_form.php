@@ -77,7 +77,7 @@
                 Already have an account?
                 <a
                         class="font-semibold text-pink-500 transition-colors hover:text-blue-700"
-                        href="templates/login_form.php"
+                        href="pages/login_page.php"
                 >
                     Sign In
                 </a>

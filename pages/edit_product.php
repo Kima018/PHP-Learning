@@ -3,9 +3,10 @@ if (session_status() == PHP_SESSION_NONE) {
     session_start();
 }
 include "../models/products.php";
-if (isset($_GET["id"])) {
-    $id = $_GET["id"];
-};
+if (!isset($_GET["id"])) {
+    die("Couldnt fide product to edit");
+}
+$id = $_GET["id"];
 $product = getItemById($id)->fetch_assoc();
 ?>
 <!doctype html>
@@ -21,11 +22,9 @@ $product = getItemById($id)->fetch_assoc();
 
 </head>
 <body>
-<?php
-require "../templates/navigation.php";
-?>
 
-<?php ?>
+<?php require "../templates/navigation.php"; ?>
+
 
 <form class="max-w-sm mx-auto mt-10" method="POST" action="../controllers/edit_item.php">
     <div class="mb-5">
@@ -75,13 +74,8 @@ require "../templates/navigation.php";
                     onclick="return confirm('Da li ste sigurni da želite obrisati ovaj proizvod?')"
             >
         </form>
-
     </div>
-
-
 </form>
-
-
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.0/jquery.min.js"
         integrity="sha256-xNzN2a4ltkB44Mc/Jz3pT4iU1cmeR0FkXs4pru/JxaQ=" crossorigin="anonymous"></script>
 <script>

@@ -5,5 +5,6 @@ if (isset($_SESSION["registered"])) {
 }
 session_destroy();
 header("location:../index.php");
-exit;
+exit();
+
 ?>
