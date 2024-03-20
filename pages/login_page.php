@@ -11,9 +11,7 @@
 
 </head>
 <body>
-<?php
-require "../templates/navigation.php";
-?>
+<?php require "../templates/navigation.php"; ?>
 
 <div class="flex min-h-screen items-center justify-center">
     <div class="relative flex flex-col rounded-xl bg-transparent bg-clip-border text-gray-700 shadow-none">
@@ -52,7 +50,7 @@ require "../templates/navigation.php";
             >
 
 
-            <p class="mt-4 block text-center font-sans text-base font-normal leading-relaxed text-gray-700 antialiased" >
+            <p class="mt-4 block text-center font-sans text-base font-normal leading-relaxed text-gray-700 antialiased">
                 Forgot a password?
                 <a
                         class="font-semibold text-pink-500 transition-colors hover:text-blue-700"

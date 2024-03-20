@@ -1,7 +1,8 @@
 <?php
-session_start();
+if (session_status() == PHP_SESSION_NONE) {
+    session_start();
+}
 ?>
-
 <!doctype html>
 <html lang="en">
 <head>
@@ -18,17 +19,11 @@ session_start();
 <?php
 require "templates/navigation.php";
 ?>
-<?php if (isset($_SESSION["registered"]) && $_SESSION["registered"] === true) : ?>
-<?php //require "templates/table_template.php";?>
-<h1>Prijavljeni ste!</h1>
+<?php if (isset($_SESSION["registered"])) : ?>
+    <h1>Prijavljeni ste!</h1>
 <?php else: ?>
-
-<?php
-require "templates/registration_form.php"
-?>
+    <?php require "templates/registration_form.php" ?>
 <?php endif; ?>
-
-
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.0/jquery.min.js"
         integrity="sha256-xNzN2a4ltkB44Mc/Jz3pT4iU1cmeR0FkXs4pru/JxaQ=" crossorigin="anonymous"></script>
 <script>
