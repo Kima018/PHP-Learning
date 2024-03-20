@@ -1,8 +1,11 @@
 <?php
-session_start();
-include "../models/products.php"
-?>
-
+if (session_status() == PHP_SESSION_NONE) {
+    session_start();
+}
+if (!$_SESSION['registered']) {
+    header("location:login_page.php");
+}
+include "../models/products.php" ?>
 <!doctype html>
 <html lang="en">
 <head>
@@ -16,12 +19,8 @@ include "../models/products.php"
 
 </head>
 <body>
-<?php
-require "../templates/navigation.php";
-?>
-<?php if (!isset($_SESSION["registered"])) : ?>
-    <?php header("location:login_page.php"); ?>
-<?php else: ?>
+<?php require "../templates/navigation.php"; ?>
+<div class="container mx-auto">
     <div class="relative overflow-x-auto">
         <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
             <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
@@ -44,32 +43,31 @@ require "../templates/navigation.php";
             </tr>
             </thead>
             <tbody>
-
             <?php
             $result = selectItems();
             if ($result->num_rows === 0): ?>
                 <div>Nema Proizvoda !</div>
             <?php else: ?>
-                <?php while ($row = $result->fetch_assoc()): ?>
+                <?php while ($product = $result->fetch_assoc()): ?>
                     <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
-                        <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                            <?php echo $row["naziv"]; ?>
+                        <th scope="product"
+                            class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                            <?= $product["naziv"]; ?>
                         </th>
                         <td class="px-6 py-4">
-                            <?php echo $row["boja"]; ?>
+                            <?= $product["boja"]; ?>
                         </td>
                         <td class="px-6 py-4">
-                            <?php echo $row["kategorija"]; ?>
+                            <?= $product["kategorija"]; ?>
                         </td>
                         <td class="px-6 py-4">
-                            <?php echo $row["cena"]; ?>&dollar;
+                            <?= $product["cena"]; ?>&dollar;
                         </td>
                         <td class="px-6 py-4 flex justify-center">
                             <div class="flex gap-4">
-                                <span><a href="../pages/edit_product.php?id=<?php echo $row['id']; ?>">Edit</a></span>
+                                <span><a href="../pages/edit_product.php?id=<?= $product['id']; ?>">Edit</a></span>
                                 <form method="POST" action="../controllers/delete_item.php">
-                                    <input type="number" name="product_id" value="<?php echo $row['id']; ?>"
-                                           class="hidden">
+                                    <input type="hidden" name="product_id" value="<?= $product['id']; ?>">
                                     <input type="submit" value="delete"
                                            onclick="return confirm('Da li ste sigurni da želite obrisati ovaj proizvod?');"
                                            class="cursor-pointer bg-transparent">
@@ -89,8 +87,8 @@ require "../templates/navigation.php";
             </tbody>
         </table>
     </div>
-<?php endif; ?>
 
+</div>
 
 <dialog> test</dialog>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.0/jquery.min.js"
