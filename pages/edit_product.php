@@ -1,10 +1,12 @@
 <?php
-session_start();
+if (session_status() == PHP_SESSION_NONE) {
+    session_start();
+}
 include "../models/products.php";
 if (isset($_GET["id"])) {
     $id = $_GET["id"];
 };
-$row = getItemById($id)->fetch_assoc();
+$product = getItemById($id)->fetch_assoc();
 ?>
 <!doctype html>
 <html lang="en">
@@ -31,7 +33,7 @@ require "../templates/navigation.php";
             proizvoda</label>
         <input type="text"
                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-               value="<?php echo $row["naziv"]; ?>"
+               value="<?= $product["naziv"]; ?>"
                name="product_name">
 
     </div>
@@ -39,24 +41,24 @@ require "../templates/navigation.php";
         <label for="base-input" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Boja</label>
         <input type="text"
                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-               value="<?php echo $row["boja"]; ?>"
+               value="<?= $product["boja"]; ?>"
                name="product_color">
     </div>
     <div class="mb-5">
         <label for="base-input" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Kategorija</label>
         <input type="text"
                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-               value="<?php echo $row["kategorija"]; ?>"
+               value="<?= $product["kategorija"]; ?>"
                name="product_category">
     </div>
     <div>
         <label for="base-input" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Cena</label>
         <input type="text"
                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-               value="<?php echo $row["cena"]; ?>"
+               value="<?= $product["cena"]; ?>"
                name="product_price">
     </div>
-    <input type="number" name="product_id" value="<?php echo $id ?>" readonly class="hidden">
+    <input type="number" name="product_id" value="<?= $id ?>" readonly class="hidden">
 
     <div class="flex justify-between">
         <input
@@ -65,7 +67,7 @@ require "../templates/navigation.php";
                 value="Edit"
         >
         <form method="POST" action="../controllers/delete_item.php">
-            <input type="number" name="product_id" value="<?php echo $id ?>" class="hidden">
+            <input type="number" name="product_id" value="<?= $id ?>" class="hidden">
             <input
                     class="mt-6 block select-none rounded-lg bg-pink-500 py-3 px-6 text-center align-middle font-sans text-xs font-bold uppercase text-white shadow-md shadow-pink-500/20 transition-all hover:shadow-lg hover:shadow-pink-500/40 focus:opacity-[0.85] focus:shadow-none active:opacity-[0.85] active:shadow-none disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none"
                     type="submit"
